@@ -4,7 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 const HomeSreen = () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView className="bg-gk-dark flex-1">
       <Text>HomeSreen</Text>
     </SafeAreaView>
   );

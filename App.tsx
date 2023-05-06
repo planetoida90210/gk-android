@@ -11,15 +11,17 @@ export type StackParamList = {
 
 const Stack = createNativeStackNavigator<StackParamList>();
 
+// Hide system status bar
+setStatusBarHidden(true, "none");
+// Hide system navigation bar on Android when not swiping from edges
+NavigationBar.setPositionAsync("absolute");
+NavigationBar.setVisibilityAsync("hidden");
+NavigationBar.setBehaviorAsync("overlay-swipe");
+NavigationBar.setBackgroundColorAsync("#0000001a");
+// Set orientation to landscape
+ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE);
+
 export default function App() {
-  // Hide system status bar
-  setStatusBarHidden(true, "none");
-  // Hide system navigation bar on Android when not swiping from edges
-  NavigationBar.setPositionAsync("absolute");
-  NavigationBar.setVisibilityAsync("hidden");
-  NavigationBar.setBehaviorAsync("overlay-swipe");
-  NavigationBar.setBackgroundColorAsync("#0000001a");
-  ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE);
   return (
     <NavigationContainer>
       <RootNavigator />
